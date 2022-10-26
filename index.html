@@ -13,10 +13,12 @@
       position: fixed;
       top: 0;
       left: 0;
+      width: 50vw;
     }
 
     p {
       color: red;
+      font-size: 100px;
     }
 
     a {
@@ -27,7 +29,7 @@
 <body>
   <img id="red-herring" onclick="reveal()" src="https://media.discordapp.net/attachments/260935233849917440/1034624554712174642/unknown.png">
   <p id="march-19"></p>
-  <video id="the-truth" width="400">
+  <video id="the-truth" width="400" loop>
     <source src="https://cdn.discordapp.com/attachments/795506213478858822/1010230138492948540/redditsave.com_prepare-e712wbgtug381-240.mp4" type="video/mp4">
   </video>
   <script defer>
@@ -49,8 +51,7 @@
       decrementSeconds();
     }, 1);
 
-    const redHerring = document.getElementById('red-herring');
-    let originalTopValue = Number(redHerring.style.top);
+    
 
     const playVideo = () => {
       const vid = document.getElementById('the-truth');
@@ -62,15 +63,19 @@
       }
     }
 
+    const redHerring = document.getElementById('red-herring');
+    let originalTopValue = Number(redHerring.style.top);
+
     const reveal = () => {
       setInterval(() => {
-        console.log(`${originalTopValue + 1}`)
         originalTopValue += 1;
         redHerring.style.setProperty('top', `${originalTopValue}px`);
       }, 1);
 
       playVideo();
     }
+
+    redHerring.addEventListener('mouseenter', reveal);
   </script>
 </body>
 </html>
