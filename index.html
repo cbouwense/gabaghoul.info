@@ -65,7 +65,7 @@
     const reveal = () => {
       setInterval(() => {
         console.log(`${originalTopValue + 1}`)
-        originalTopValue += 0.01;
+        originalTopValue += 1;
         redHerring.style.setProperty('top', `${originalTopValue}px`);
       }, 1);
 
